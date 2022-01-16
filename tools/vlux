@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -Eeu # no -o pipefail on purpose to allow commands to succeed when no yaml files are present
+
+dir="$1"
+
+echo "Running yamllint ..."
+YAMLLINT_CONFIG_FILE=/usr/local/share/yamllint/config.yaml \
+  yamllint "$dir"
+
+echo "Running kubeval on input files ..."
+ag -lg '\.yaml$' "$dir" \
+  | xargs -r kubeval --strict \
+                     --additional-schema-locations=file:///usr/local/share/schemas
+
+echo "Running kubeval on built kustomizations ..."  
+ag -lg 'kustomization\.yaml' "$dir" \
+  | sed -e 's|/kustomization.yaml$||g' \
+  | xargs -r -n1 -I{} kustomization {} \
+                      kubeval - \
+                              --strict \
+                              --additional-schema-locations=/usr/local/share/flux \
+                              --filename {}
