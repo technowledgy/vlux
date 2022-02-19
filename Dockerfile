@@ -1,9 +1,7 @@
-ARG PG_VERSION=14.1
-
 FROM alpine:3.15.0 AS base
 
 LABEL author Wolfgang Walther
-LABEL maintainer vlux@technowledgy.de
+LABEL maintainer opensource@technowledgy.de
 LABEL license MIT
 
 WORKDIR /usr/src
