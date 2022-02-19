@@ -11,13 +11,13 @@ COPY tools /usr/local/bin
 COPY .yamllint.yaml /usr/local/share/yamllint/config.yaml
 
 # renovate: datasource=github-releases depName=kustomize lookupName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION="v4.4.1"
+ARG KUSTOMIZE_VERSION="v4.5.2"
 
 # renovate: datasource=github-releases depName=kubeval lookupName=instrumenta/kubeval
 ARG KUBEVAL_VERSION="v0.16.1"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
-ARG FLUX2_VERSION="v0.25.2"
+ARG FLUX2_VERSION="v0.27.0"
 
 RUN apk add \
         --no-cache \
