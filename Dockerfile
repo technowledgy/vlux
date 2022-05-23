@@ -1,4 +1,4 @@
-FROM alpine:3.15.4 AS base
+FROM alpine:3.16.0 AS base
 
 LABEL author Wolfgang Walther
 LABEL maintainer opensource@technowledgy.de
@@ -11,7 +11,7 @@ COPY tools /usr/local/bin
 COPY .yamllint.yaml /usr/local/share/yamllint/config.yaml
 
 # renovate: datasource=github-releases depName=kustomize lookupName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION="v4.5.4"
+ARG KUSTOMIZE_VERSION="v4.5.5"
 
 # renovate: datasource=github-releases depName=kubeval lookupName=instrumenta/kubeval
 ARG KUBEVAL_VERSION="v0.16.1"
