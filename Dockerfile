@@ -1,4 +1,4 @@
-FROM alpine:3.16.0 AS base
+FROM alpine:3.16.1 AS base
 
 LABEL author Wolfgang Walther
 LABEL maintainer opensource@technowledgy.de
@@ -11,13 +11,13 @@ COPY tools /usr/local/bin
 COPY .yamllint.yaml /usr/local/share/yamllint/config.yaml
 
 # renovate: datasource=github-releases depName=kustomize lookupName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION="v4.5.5"
+ARG KUSTOMIZE_VERSION="v4.5.7"
 
 # renovate: datasource=github-releases depName=kubeval lookupName=instrumenta/kubeval
 ARG KUBEVAL_VERSION="v0.16.1"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
-ARG FLUX2_VERSION="v0.31.3"
+ARG FLUX2_VERSION="v0.31.5"
 
 RUN apk add \
         --no-cache \
