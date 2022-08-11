@@ -1,4 +1,4 @@
-FROM alpine:3.16.1 AS base
+FROM alpine:3.16.2 AS base
 
 LABEL author Wolfgang Walther
 LABEL maintainer opensource@technowledgy.de
@@ -17,7 +17,7 @@ ARG KUSTOMIZE_VERSION="v4.5.7"
 ARG KUBEVAL_VERSION="v0.16.1"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
-ARG FLUX2_VERSION="v0.31.5"
+ARG FLUX2_VERSION="v0.32.0"
 
 RUN apk add \
         --no-cache \
