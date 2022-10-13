@@ -12,6 +12,10 @@
     {
       "matchPackageNames": ["kustomize"],
       "extractVersion": "^kustomize/(?<version>.*)$"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ]
 }
