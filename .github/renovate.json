@@ -1,8 +1,7 @@
 {
   "extends": [
     "config:base",
-    "regexManagers:dockerfileVersions",
-    "schedule:earlyMondays"
+    "regexManagers:dockerfileVersions"
   ],
   "packageRules": [
     {
