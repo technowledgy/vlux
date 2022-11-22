@@ -17,7 +17,7 @@ ARG KUSTOMIZE_VERSION="v4.5.7"
 ARG KUBEVAL_VERSION="v0.16.1"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
-ARG FLUX2_VERSION="v0.36.0"
+ARG FLUX2_VERSION="v0.37.0"
 
 RUN apk add \
         --no-cache \
