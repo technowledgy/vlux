@@ -1,6 +1,6 @@
 # vlux
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/technowledgy/vlux/Push%20to%20main)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/actions/status/technowledgy/vlux/push.yaml?branch=main)
 ![GitHub](https://img.shields.io/github/license/technowledgy/vlux)
 
 This image **v**alidates f**lux** repos in CI.
