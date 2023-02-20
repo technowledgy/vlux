@@ -1,4 +1,4 @@
-FROM alpine:3.17.1 AS base
+FROM alpine:3.17.2 AS base
 
 LABEL org.opencontainers.image.authors Wolfgang Walther
 LABEL org.opencontainers.image.source https://github.com/technowledgy/vlux
@@ -17,7 +17,7 @@ ARG KUSTOMIZE_VERSION="v4.5.7"
 ARG KUBEVAL_VERSION="v0.16.1"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
-ARG FLUX2_VERSION="v0.39.0"
+ARG FLUX2_VERSION="v0.40.0"
 
 RUN apk add \
         --no-cache \
