@@ -1,4 +1,4 @@
-FROM alpine:3.18.4 AS base
+FROM alpine:3.18.5 AS base
 
 LABEL org.opencontainers.image.authors Wolfgang Walther
 LABEL org.opencontainers.image.source https://github.com/technowledgy/vlux
