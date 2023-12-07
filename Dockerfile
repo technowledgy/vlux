@@ -11,7 +11,7 @@ COPY tools /usr/local/bin
 COPY .yamllint.yaml /usr/local/share/yamllint/config.yaml
 
 # renovate: datasource=github-releases depName=kustomize lookupName=kubernetes-sigs/kustomize
-ARG KUSTOMIZE_VERSION="v5.2.1"
+ARG KUSTOMIZE_VERSION="v5.3.0"
 
 # renovate: datasource=github-releases depName=kubeval lookupName=instrumenta/kubeval
 ARG KUBEVAL_VERSION="v0.16.1"
