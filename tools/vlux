@@ -2,25 +2,31 @@
 set -Eeuo pipefail
 
 dir="$1"
+shift
 
 echo "Running yamllint ..."
 YAMLLINT_CONFIG_FILE=/usr/local/share/yamllint/config.yaml \
   yamllint "$dir"
 
-echo "Running kubeval on input files ..."
+echo "Running kubeconform on input files ..."
 find "$dir" -iname '*.yaml' -print0 \
-  | xargs -0 -r kubeval --strict \
-                     --schema-location="https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master" \
-                     --additional-schema-locations="file:///usr/local/share/schemas" \
-                     --ignore-missing-schemas
+  | xargs -0 -r kubeconform -strict \
+                         -schema-location="https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master" \
+                         -schema-location="file:///usr/local/share/schemas" \
+                         -ignore-missing-schemas \
+                         "$@"
 
-echo "Running kubeval on built kustomizations ..."  
+echo "Running kubeconform on built kustomizations ..."
 find "$dir" -iname 'kustomization.yaml' -print0 \
   | sed -z -e 's|/kustomization.yaml$||g' \
-  | xargs -0 -r -n1 -I{} kustomization {} \
-                      kubeval - \
-                              --strict \
-                              --schema-location="https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master" \
-                              --additional-schema-locations="file:///usr/local/share/schemas" \
-                              --ignore-missing-schemas \
-                              --filename {}
+  | while IFS= read -r -d $'\0' kustomization_dir; do
+      echo "Processing kustomization in: $kustomization_dir"
+      kustomize build \
+                --load-restrictor=LoadRestrictionsNone \
+                "$kustomization_dir" \
+        | kubeconform -strict \
+                      -schema-location="https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master" \
+                      -schema-location="file:///usr/local/share/schemas" \
+                      -ignore-missing-schemas \
+                      "$@"
+    done

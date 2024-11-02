@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: test
 resources:
 - namespace.yaml
-patchesJSON6902:
+patches:
 - target:
     version: v1
     kind: Namespace

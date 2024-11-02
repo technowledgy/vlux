@@ -13,8 +13,8 @@ COPY .yamllint.yaml /usr/local/share/yamllint/config.yaml
 # renovate: datasource=github-releases depName=kustomize lookupName=kubernetes-sigs/kustomize
 ARG KUSTOMIZE_VERSION="v5.4.3"
 
-# renovate: datasource=github-releases depName=kubeval lookupName=instrumenta/kubeval
-ARG KUBEVAL_VERSION="v0.16.1"
+# renovate: datasource=github-releases depName=kubeconform lookupName=yannh/kubeconform
+ARG KUBECONFORM_VERSION="v0.6.7"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
 ARG FLUX2_VERSION="v2.4.0"
@@ -34,10 +34,10 @@ RUN apk add \
   ; curl -sL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F${KUSTOMIZE_VERSION}/kustomize_${KUSTOMIZE_VERSION}_linux_amd64.tar.gz \
       | tar xz -C /usr/local/bin \
   ; chmod +x /usr/local/bin/kustomize \
-### kubeval
-  ; curl -sL https://github.com/instrumenta/kubeval/releases/download/${KUBEVAL_VERSION}/kubeval-linux-amd64.tar.gz \
+### kubeconform
+  ; curl -sL https://github.com/yannh/kubeconform/releases/download/${KUBECONFORM_VERSION}/kubeconform-linux-amd64.tar.gz \
       | tar xz -C /usr/local/bin \
-  ; chmod +x /usr/local/bin/kubeval \
+  ; chmod +x /usr/local/bin/kubeconform \
 ### flux2 crd schemas
   ; mkdir -p /usr/local/share/schemas/master-standalone-strict \
   ; curl -sL https://github.com/fluxcd/flux2/releases/download/${FLUX2_VERSION}/crd-schemas.tar.gz \
