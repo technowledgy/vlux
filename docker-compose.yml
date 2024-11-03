@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   hadolint:
     image: hadolint/hadolint:v2.12.0
