@@ -1,6 +1,10 @@
 #!/usr/bin/env bats
 PATH="./tools:$PATH"
 
+@test "vlux passes without input files" {
+  run -0 vlux test/empty
+}
+
 @test "vlux passes" {
   run -0 vlux test/valid
 }

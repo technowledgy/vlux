@@ -22,7 +22,7 @@ ARG FLUX2_VERSION="v2.4.0"
 RUN apk add \
         --no-cache \
         bash \
-        the_silver_searcher \
+        sed \
         yamllint \
 ### build-deps
   ; apk add \
