@@ -17,6 +17,10 @@ PATH="./tools:$PATH"
   run -123 vlux test/invalid/input
 }
 
+@test "vlux fails when kustomize fails" {
+  run -1 vlux test/invalid/kustomize
+}
+
 @test "vlux fails with kubeval on built kustomization" {
   run -123 vlux test/invalid/kustomization
 }
