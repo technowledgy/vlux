@@ -26,15 +26,15 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       - name: Build
-        uses: docker/build-push-action@v6.12.0
+        uses: docker/build-push-action@v6.13.0
       - name: Build Test
-        uses: docker/build-push-action@v6.12.0
+        uses: docker/build-push-action@v6.13.0
         with:
           target: test
       - name: Test
         run: DOCKER_BUILDKIT=1 docker compose run --rm bats test
       - name: Push
-        uses: docker/build-push-action@v6.12.0
+        uses: docker/build-push-action@v6.13.0
         with:
           push: true
           tags: technowledgy/vlux:latest
