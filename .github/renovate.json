@@ -1,19 +1,29 @@
 {
   "extends": [
-    "config:base",
-    "regexManagers:dockerfileVersions"
+    "config:recommended",
+    "customManagers:dockerfileVersions"
   ],
   "packageRules": [
     {
-      "matchUpdateTypes": ["patch", "minor"],
+      "matchUpdateTypes": [
+        "patch",
+        "minor"
+      ],
       "groupName": "dependencies"
     },
     {
-      "matchPackageNames": ["kustomize"],
+      "matchPackageNames": [
+        "kustomize"
+      ],
       "extractVersion": "^kustomize/(?<version>.*)$"
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     }
   ]
