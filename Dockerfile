@@ -14,7 +14,7 @@ COPY .yamllint.yaml /usr/local/share/yamllint/config.yaml
 ARG KUSTOMIZE_VERSION="v5.4.3"
 
 # renovate: datasource=github-releases depName=kubeconform lookupName=yannh/kubeconform
-ARG KUBECONFORM_VERSION="v0.6.7"
+ARG KUBECONFORM_VERSION="v0.7.0"
 
 # renovate: datasource=github-releases depName=flux2 lookupName=fluxcd/flux2
 ARG FLUX2_VERSION="v2.5.1"
