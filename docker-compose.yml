@@ -1,6 +1,6 @@
 services:
   hadolint:
-    image: hadolint/hadolint:v2.12.0
+    image: hadolint/hadolint:v2.13.1
     working_dir: /mnt
     volumes:
       - ./:/mnt
